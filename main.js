@@ -30,7 +30,7 @@ app.directive("state", function() {
             }
         },
         //
-        // the controller is the 4th parameters, you can call any name you want
+        // the controller is the 4th parameter, you can call any name you want
 		//
         link: function(scope, element, attrs, countryCtrl) {
 
@@ -41,7 +41,13 @@ app.directive("state", function() {
 app.directive("city", function() {
     return {
         restrict: "E",
+        //
+        // require multiple directives
+        //
         require: ["^country", "^state"],
+        //
+        // the controller array is the 4th parameter.
+        //
         link: function(scope, element, attrs, ctrls) {
         	// call country controller api method
             ctrls[0].makeAnnouncement("from city");
